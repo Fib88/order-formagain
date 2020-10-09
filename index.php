@@ -46,39 +46,39 @@ $emailErr = $streetErr = $streetNumberErr = $cityErr = $zipCodeErr = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 echo "pulled the data";
 
-if (empty($_POST["$email"])){
+if (empty($_POST["email"])){
         $emailErr = "Email is required";
     }
     else{
-        $email = input($_POST["$email"]);
+        $email = input($_POST["email"]);
     }
 
-    if(empty($_POST["$street"])){
+    if(empty($_POST["street"])){
         $streetErr = "Street is required";
     }
     else{
-        $street = input($_POST["$street"]);
+        $street = input($_POST["street"]);
     }
 
-    if(empty($_POST["$streetNumber"])) {
+    if(empty($_POST["streetnumber"])) {
         $streetNumberErr = "Street number is required";
     }
     else{
-        $streetNumber = input($_POST["$streetNumber"]);
+        $streetNumber = input($_POST["streetnumber"]);
         }
 
-    if(empty($_POST["$city"])){
+    if(empty($_POST["city"])){
         $cityErr = "City is required";
     }
     else{
-        $city = input($_POST["$city"]);
+        $city = input($_POST["city"]);
     }
 
-    if(empty($_POST["$zipCode"])){
+    if(empty($_POST["zipcode"])){
         $zipCodeErr = "A zipcode ranging up to 4numbers is required";
     }
     else{
-        $zipCode = $_POST["$zipCode"];
+        $zipCode = $_POST["zipcode"];
     }
 
 }
