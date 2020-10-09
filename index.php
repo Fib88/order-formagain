@@ -43,47 +43,73 @@ $email = $street = $streetNumber = $city = $zipCode = "";
 $emailErr = $streetErr = $streetNumberErr = $cityErr = $zipCodeErr = "";
 
 
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 echo "pulled the data";
 
+//if no mail input log this error
 if (empty($_POST["email"])){
         $emailErr = "Email is required";
     }
     else{
+        //if not mailadress format log this error
         $email = input($_POST["email"]);
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailErr = "Invalid email format";
         }
+        //if everything else fits go ahead and store the input
         else{
             $email = input($_POST["email"]);
         }
 
     }
-
+    //if no input run this error
     if(empty($_POST["street"])){
         $streetErr = "Street is required";
     }
+    //if you have input store it
     else{
         $street = input($_POST["street"]);
     }
 
+    //if you have not input log this error
     if(empty($_POST["streetnumber"])) {
         $streetNumberErr = "Street number is required";
     }
-    else{
-        $streetNumber = input($_POST["streetnumber"]);
+    //if its not a number log this error
+    elseif(!filter_var($_POST["streetnumber"], FILTER_VALIDATE_INT)){
+            $streetNumberErr = "Please insert a number";
+        }
+        //else you can store the input
+        else{
+            $streetNumber = input($_POST["streetnumber"]);
         }
 
+        //if no input log this error
     if(empty($_POST["city"])){
         $cityErr = "City is required";
     }
+    //else you can store this input
     else{
         $city = input($_POST["city"]);
     }
 
+    //if no input log this error
     if(empty($_POST["zipcode"])){
-        $zipCodeErr = "A zipcode ranging up to 4numbers is required";
+        $zipCodeErr = "A zipcode is required";
     }
+
+    //if input are not ints log this error
+    elseif (!filter_var($_POST["zipcode"], FILTER_VALIDATE_INT) ){
+        $zipCodeErr = "Please insert numbers";
+    }
+    //if you log more than 4characters log this error
+    elseif(strlen($_POST["zipcode"])>4){
+        $zipCodeErr = "Only a max of 4 numbers is allowed";
+    }
+
+    //else you can store the input
     else{
         $zipCode = $_POST["zipcode"];
     }
@@ -99,3 +125,5 @@ function input($data) {
 
 require 'form-view.php';
 whatIsHappening();
+
+var_dump(count_chars($_POST["zipcode"]));
