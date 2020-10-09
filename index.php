@@ -19,6 +19,7 @@ function whatIsHappening() {
     var_dump($_SESSION);
 }
 
+
 //your products with their price.
 $products = [
     ['name' => 'Club Ham', 'price' => 3.20],
@@ -37,4 +38,57 @@ $products = [
 
 $totalValue = 0;
 
+//define variables and set to empty values
+$email = $street = $streetNumber = $city = $zipCode = "";
+$emailErr = $streetErr = $streetNumberErr = $cityErr = $zipCodeErr = "";
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+echo "pulled the data";
+
+if (empty($_POST["$email"])){
+        $emailErr = "Email is required";
+    }
+    else{
+        $email = input($_POST["$email"]);
+    }
+
+    if(empty($_POST["$street"])){
+        $streetErr = "Street is required";
+    }
+    else{
+        $street = input($_POST["$street"]);
+    }
+
+    if(empty($_POST["$streetNumber"])) {
+        $streetNumberErr = "Street number is required";
+    }
+    else{
+        $streetNumber = input($_POST["$streetNumber"]);
+        }
+
+    if(empty($_POST["$city"])){
+        $cityErr = "City is required";
+    }
+    else{
+        $city = input($_POST["$city"]);
+    }
+
+    if(empty($_POST["$zipCode"])){
+        $zipCodeErr = "A zipcode ranging up to 4numbers is required";
+    }
+    else{
+        $zipCode = $_POST["$zipCode"];
+    }
+
+}
+
+function input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 require 'form-view.php';
+whatIsHappening();
