@@ -51,6 +51,13 @@ if (empty($_POST["email"])){
     }
     else{
         $email = input($_POST["email"]);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        }
+        else{
+            $email = input($_POST["email"]);
+        }
+
     }
 
     if(empty($_POST["street"])){
