@@ -42,8 +42,25 @@ $totalValue = 0;
 //define variables and set to empty values
 $email = $street = $streetNumber = $city = $zipCode = "";
 $emailErr = $streetErr = $streetNumberErr = $cityErr = $zipCodeErr = "";
+$succesMessage = "";
 
 
+//if session cookies are set store them in the var displayed on page right now
+if(isset($_SESSION["email"])){
+    $email = $_SESSION["email"];
+}
+if(isset($_SESSION["street"])){
+    $street = $_SESSION["street"];
+}
+if(isset($_SESSION["streetnumber"])){
+    $streetNumber = $_SESSION["streetnumber"];
+}
+if(isset($_SESSION["city"])){
+    $city = $_SESSION["city"];
+}
+if(isset($_SESSION["zipcode"])){
+    $zipCode = $_SESSION["zipcode"];
+}
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -118,11 +135,14 @@ if (empty($_POST["email"])){
 }
 
 //store my input $_POST vars in $_SESSION cookies
+
 $_SESSION["email"] = $email;
 $_SESSION["street"] = $street;
 $_SESSION["city"] = $city;
 $_SESSION["streetnumber"] = $streetNumber;
 $_SESSION["zipcode"] =  $zipCode;
+
+
 
 
 //if all input fields are filled in and my error vars are empty you can store the message in $SuccesMessage
