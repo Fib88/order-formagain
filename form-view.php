@@ -76,7 +76,11 @@
         </label>
             
         <button type="submit" class="btn btn-primary">Order!</button>
+        <div class="alert alert-success">
+            <strong><?php echo$succesMessage?>;</strong>
+        </div>
     </form>
+
 
     <footer>You already ordered <strong>&euro; <?php echo $totalValue ?></strong> in food and drinks.</footer>
 </div>

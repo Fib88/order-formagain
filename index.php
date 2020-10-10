@@ -117,10 +117,18 @@ if (empty($_POST["email"])){
 
 }
 
-$succesMessage = "Succes! Your order will soon be delivered";
+//store my input $_POST vars in $_SESSION cookies
+$_SESSION["email"] = $email;
+$_SESSION["street"] = $street;
+$_SESSION["city"] = $city;
+$_SESSION["streetnumber"] = $streetNumber;
+$_SESSION["zipcode"] =  $zipCode;
+
+
+//if all input fields are filled in and my error vars are empty you can store the message in $SuccesMessage
 if(isset($email,$street,$city,$zipCode,$streetNumber)&& empty($emailErr) && empty($streetErr) &&
     empty($zipCodeErr) && empty($streetNumberErr) && empty($cityErr)){
-    echo $succesMessage;
+    $succesMessage = "Succes! Your order will soon be delivered";
 }
 
 
