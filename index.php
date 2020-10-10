@@ -8,6 +8,7 @@ ini_set("display_errors", '1');
 ini_set("display_startup_errors", '1');
 error_reporting(E_ALL);
 
+
 function whatIsHappening() {
     echo '<h2>$_GET</h2>';
     var_dump($_GET);
@@ -68,7 +69,7 @@ if (empty($_POST["email"])){
     if(empty($_POST["street"])){
         $streetErr = "Street is required";
     }
-    //if you have input store it
+    //else when you have input store it
     else{
         $street = input($_POST["street"]);
     }
@@ -105,7 +106,7 @@ if (empty($_POST["email"])){
         $zipCodeErr = "Please insert numbers";
     }
     //if you log more than 4characters log this error
-    elseif(strlen($_POST["zipcode"])>4){
+    elseif(strlen(strval($_POST["zipcode"]))>4){
         $zipCodeErr = "Only a max of 4 numbers is allowed";
     }
 
@@ -126,4 +127,3 @@ function input($data) {
 require 'form-view.php';
 whatIsHappening();
 
-var_dump(count_chars($_POST["zipcode"]));

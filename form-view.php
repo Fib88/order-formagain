@@ -26,7 +26,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email">E-mail:</label>
-                <input type="text" id="email" name="email" class="form-control"<?php echo "$email";?>/>
+                <input type="text" id="email" name="email" class="form-control" value ="<?php echo "$email";?>"/>
                 <span class = "error" style = "color:red"><?php echo $emailErr;?></span>
             </div>
             <div></div>
@@ -38,24 +38,24 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="street">Street:</label>
-                    <input type="text" name="street" id="street" class="form-control">
+                    <input type="text" name="street" id="street" class="form-control" value ="<?php echo "$street";?>"/>
                     <span class = "error" style = "color:red"><?php echo $streetErr;?></span>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="streetnumber">Street number:</label>
-                    <input type="text" id="streetnumber" name="streetnumber" class="form-control">
+                    <input type="text" id="streetnumber" name="streetnumber" class="form-control" value ="<?php echo "$streetNumber";?>"/>
                     <span class = "error" style = "color:red"><?php echo $streetNumberErr;?></span>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="city">City:</label>
-                    <input type="text" id="city" name="city" class="form-control">
+                    <input type="text" id="city" name="city" class="form-control" value ="<?php echo "$city";?>"/>
                     <span class = "error" style = "color:red"><?php echo $cityErr;?></span>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="zipcode">Zipcode</label>
-                    <input type="text" id="zipcode" name="zipcode" class="form-control">
+                    <input type="text" id="zipcode" name="zipcode" class="form-control" value ="<?php echo "$zipCode";?>"/>
                     <span class = "error" style = "color:red"><?php echo $zipCodeErr;?></span>
                 </div>
             </div>
