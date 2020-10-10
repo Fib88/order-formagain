@@ -117,6 +117,13 @@ if (empty($_POST["email"])){
 
 }
 
+$succesMessage = "Succes! Your order will soon be delivered";
+if(isset($email,$street,$city,$zipCode,$streetNumber)&& empty($emailErr) && empty($streetErr) &&
+    empty($zipCodeErr) && empty($streetNumberErr) && empty($cityErr)){
+    echo $succesMessage;
+}
+
+
 function input($data) {
     $data = trim($data);
     $data = stripslashes($data);
